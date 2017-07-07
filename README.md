@@ -10,7 +10,7 @@ because we have more extensions we need register this as a module, to do that we
   ```bash
       sh $KEYCLOAK_HOME/bin/jboss-cli.sh --command="module add \
        --name=plc-event-listener \
-       --resources=modules/chassi-event-listener-1.0-SNAPSHOT.jar  \
+       --resources=modules/rest-spi-1.0-SNAPSHOT.jar  \
        --dependencies=org.keycloak.keycloak-core,org.keycloak.keycloak-server-spi,org.keycloak.keycloak-server-spi-private,javax.api,javax.ws.rs.api,org.jboss.resteasy.resteasy-jaxrs,org.jboss.logging"
   ```
 * configure the module, open keycloak-server file
