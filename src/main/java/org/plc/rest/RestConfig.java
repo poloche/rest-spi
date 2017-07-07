@@ -42,7 +42,7 @@ public class RestConfig {
 
         String pattern = "%s://%s:%s";
         String uri = String.format(pattern, protocol, address, port);
-        log.info("Base URI for Chassi-event-listener ".concat(uri));
+        log.info("Base URI for rest".concat(uri));
         return uri;
     }
 }
