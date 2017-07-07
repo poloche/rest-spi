@@ -9,7 +9,7 @@ because we have more extensions we need register this as a module, to do that we
 * register the module
   ```bash
       sh $KEYCLOAK_HOME/bin/jboss-cli.sh --command="module add \
-       --name=com.saasforge.keycloak.chassi-event-listener \
+       --name=plc-event-listener \
        --resources=modules/chassi-event-listener-1.0-SNAPSHOT.jar  \
        --dependencies=org.keycloak.keycloak-core,org.keycloak.keycloak-server-spi,org.keycloak.keycloak-server-spi-private,javax.api,javax.ws.rs.api,org.jboss.resteasy.resteasy-jaxrs,org.jboss.logging"
   ```
@@ -22,7 +22,7 @@ because we have more extensions we need register this as a module, to do that we
     {
     "providers": [
         "classpath:${jboss.home.dir}/providers/*",
-        "module:com.saasforge.keycloak.chassi-event-listener"
+        "module:plc-event-listener"
     ],
     "other_properties":"..."
   }
