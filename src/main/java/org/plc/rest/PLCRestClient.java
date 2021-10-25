@@ -5,8 +5,8 @@ import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 import org.plc.dto.SecurityEventDTO;
 
 import javax.ws.rs.client.ClientRequestFilter;
@@ -26,7 +26,7 @@ public class PLCRestClient {
     public PLCRestClient() {
         config = new RestConfig();
 
-        ResteasyClient client = new ResteasyClientBuilder().build();
+        ResteasyClient client = new ResteasyClientBuilderImpl().build();
         client.register((ClientRequestFilter) requestContext -> {
             log.info(requestContext.getHeaders());
             log.info(requestContext.getHeaderString(HttpHeaders.CONTENT_TYPE));
@@ -38,7 +38,7 @@ public class PLCRestClient {
         webTarget = client.target(config.getBaseUri());
     }
 
-    public void saveData(SecurityEventDTO securityEventDTO){
+    public void saveData(SecurityEventDTO securityEventDTO) {
         log.info("preparing request with path " + config.getSavePath());
 
         Invocation.Builder builder = webTarget.path(config.getSavePath()).request(MediaType.APPLICATION_JSON);
